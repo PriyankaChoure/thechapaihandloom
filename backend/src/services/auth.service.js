@@ -1,3 +1,4 @@
+const httpStatus = require("http-status");
 const User = require("../models/user.model");
 const bcrypt = require("bcryptjs");
 
@@ -18,6 +19,19 @@ const createUser = async (userData) => {
   const user = await newUser.save();
   return user;
 };
+
+const loginUserWithEmailAndPassword = async (email, password) => {
+  const user = await User.findOne({ email: email });
+
+  const isPasswordMatch = await bcrypt.compare(password, user.password);
+  if (isPasswordMatch) {
+    const { password, ...others } = user._doc;
+    return others;
+  } else {
+    throw new Error("Incorrect email or password");
+  }
+};
 module.exports = {
   createUser,
+  loginUserWithEmailAndPassword,
 };

@@ -17,11 +17,11 @@ const authController = require("../controllers/auth.controller");
         "city": "chennai",
         "postal_code": "451332",
         "country":"India"
-    }
+    } 
   }
  */
 router.post("/register", authController.register);
 
-router.post("/login", () => {});
+router.post("/login", authController.login);
 
 module.exports = router;
