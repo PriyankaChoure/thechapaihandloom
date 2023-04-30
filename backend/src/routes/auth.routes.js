@@ -11,6 +11,7 @@ const authController = require("../controllers/auth.controller");
     "email": "priya@gmail.com",
     "contact": 9897867859,
     "usertype": "admin",
+    "isAdmin":"true"
     "address": {
         "address_line_1": "1 tower abc",
         "address_line_2": "",

@@ -29,7 +29,17 @@ const verifyTokenAndAuthorization = (req, res, next) => {
     }
   });
 };
+const verifyAuthorizationAndAuthentication = (req, res, next) => {
+  verifyToken(req, res, () => {
+    if (req.user.isAdmin) {
+      next();
+    } else {
+      res.status(httpStatus.FORBIDDEN).json("You are not allowd to do that!");
+    }
+  });
+};
 
 module.exports = {
   verifyTokenAndAuthorization,
+  verifyAuthorizationAndAuthentication,
 };

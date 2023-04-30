@@ -10,6 +10,7 @@ const createUser = async (userData) => {
     email: userData.email,
     contact: userData.contact,
     usertype: userData.usertype,
+    isAdmin: userData.isAdmin,
   });
   console.log(Object.keys(userData.address).length);
   if (Object.keys(userData.address).length !== 0) {
@@ -17,7 +18,8 @@ const createUser = async (userData) => {
   }
   //   console.log(newUser);
   const user = await newUser.save();
-  return user;
+  const { password, ...others } = user._doc;
+  return others;
 };
 
 const loginUserWithEmailAndPassword = async (email, password) => {

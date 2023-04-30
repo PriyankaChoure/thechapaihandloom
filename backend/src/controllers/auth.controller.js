@@ -35,9 +35,13 @@ const login = async (req, res) => {
     if (!user) {
       res.status(httpStatus.UNAUTHORIZED).json("User not found");
     }
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "3d",
-    });
+    const token = jwt.sign(
+      { id: user._id, isAdmin: user.isAdmin },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "3d",
+      }
+    );
     res.status(httpStatus.OK).send({ user, token });
   } catch (err) {
     console.log(err);

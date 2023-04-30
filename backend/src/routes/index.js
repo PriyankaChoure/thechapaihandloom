@@ -9,4 +9,8 @@ router.use("/auth", authRoute);
 const userRoute = require("./user.route");
 router.use("/user", userRoute);
 
+// Route for Category
+const categoryRoute = require("./category.route");
+router.use("/category", categoryRoute);
+
 module.exports = router;

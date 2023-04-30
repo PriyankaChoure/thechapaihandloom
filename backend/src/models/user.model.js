@@ -13,6 +13,7 @@ const UserSchema = new mongoose.Schema(
     contact: { type: Number, required: true, unique: true },
     usertype: { type: String, required: true },
     address: { type: Array, default: config.default_address },
+    isAdmin: { type: Boolean, default: false },
   },
   { timestamps: true }
 );
