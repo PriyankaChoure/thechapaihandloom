@@ -1,10 +1,24 @@
+import { StyledEngineProvider } from "@mui/system";
 import React from "react";
+import { SnackbarProvider } from "notistack";
+import { Outlet } from "react-router-dom";
 
 const App = () => {
   return (
-    <div>
-      <h2>Welcome Admin</h2>
-    </div>
+    <StyledEngineProvider injectFirst>
+      <SnackbarProvider
+        maxSnack={1}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        preventDuplicate
+      >
+        <div>
+          <Outlet />
+        </div>
+      </SnackbarProvider>
+    </StyledEngineProvider>
   );
 };
 
