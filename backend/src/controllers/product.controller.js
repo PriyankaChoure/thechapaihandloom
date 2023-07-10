@@ -3,7 +3,12 @@ const productService = require("../services/product.service");
 
 // method to add new Product
 const addProduct = async (req, res) => {
-  const productDetail = req.body;
+  console.log("controller - ", req.file.filename);
+  const productDetail = {
+    title: req.body.title,
+    desc: req.body.desc,
+    heroImage: req.file.filename,
+  };
   console.log("product details - ", productDetail);
   try {
     const newProduct = await productService.createProduct(productDetail);
@@ -20,9 +25,11 @@ const addProduct = async (req, res) => {
 // method to found all Products
 const getAllProducts = async (req, res) => {
   try {
-    const products = await productService.getAllProducts();
+    console.log("in product controller -");
+    const products = await productService.getAllProductList();
+    console.log(products.length);
     if (products) {
-      res.status(httpStatus.OK).json(products);
+      res.json(products);
     } else {
       res.status(httpStatus.BAD_REQUEST).json("no product found");
     }

@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const middleware = require("../middlewares/verifytoken");
+const imageUploadMiddilware = require("../middlewares/imageupload");
 const productController = require("../controllers/product.controller");
 /**
  * create new product
@@ -18,7 +19,11 @@ const productController = require("../controllers/product.controller");
  * Response -
  *  {"_id":"644e37d3a17dc5255cb5f6a3","title":"Silk Saree","desc":"Material will be silk","createdAt":"2023-04-30T09:41:39.631Z","updatedAt":"2023-04-30T09:41:39.631Z","__v":0}
  */
-router.post("/:id", productController.addProduct);
+router.post(
+  "/",
+  imageUploadMiddilware.upload.single("heroImage"),
+  productController.addProduct
+);
 
 /**
  *  get product by id
@@ -68,8 +73,8 @@ router.get(
 ]
  */
 router.get(
-  "/all/:id",
-  middleware.verifyAuthorizationAndAuthentication,
+  "/",
+  // middleware.verifyAuthorizationAndAuthentication,
   productController.getAllProducts
 );
 

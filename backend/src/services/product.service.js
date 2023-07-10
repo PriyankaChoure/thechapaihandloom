@@ -14,8 +14,9 @@ const getProductByID = async (id) => {
 };
 
 //method to get all Product list
-const getAllProducts = async () => {
+const getAllProductList = async () => {
   const productList = await Product.find();
+  console.log("in service - ", productList);
   return productList;
 };
 
@@ -38,7 +39,7 @@ const deleteProductByID = async (id) => {
 };
 module.exports = {
   createProduct,
-  getAllProducts,
+  getAllProductList,
   getProductByID,
   updateProductDetail,
   deleteProductByID,

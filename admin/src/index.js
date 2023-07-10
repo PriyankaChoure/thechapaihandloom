@@ -6,6 +6,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import { LoginPage } from "./routes/LoginPage";
 import { HomePage } from "./routes/HomePage";
+import { ProductPage } from "./routes/ProductPage";
+import { CreateProductComponent } from "./components/Product/CreateProduct/CreateProductComponent";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +18,20 @@ const router = createBrowserRouter([
         path: "/",
         element: <LoginPage />,
       },
-      { path: "/home", element: <HomePage /> },
+      {
+        path: "/home",
+        element: <HomePage />,
+      },
+      {
+        path: "/products",
+        element: <ProductPage />,
+        children: [
+          {
+            path: "",
+            element: <CreateProductComponent />,
+          },
+        ],
+      },
     ],
   },
 ]);

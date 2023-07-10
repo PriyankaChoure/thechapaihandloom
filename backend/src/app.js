@@ -2,6 +2,7 @@ const express = require("express");
 const compression = require("compression");
 const helmet = require("helmet");
 const cors = require("cors");
+const multer = require("multer");
 const httpStatus = require("http-status");
 const routes = require("./routes/");
 const app = express();
@@ -14,6 +15,8 @@ app.use(express.json());
 
 // parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
+
+app.use(express.static(__dirname + "./public/images"));
 
 // gzip compression
 app.use(compression());
