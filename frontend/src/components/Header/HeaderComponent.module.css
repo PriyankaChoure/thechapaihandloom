@@ -1,0 +1,22 @@
+.wrapper {
+  display: flex;
+  justify-content: center;
+}
+.logoWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  /* border: 2px solid; */
+}
+.logo_image {
+  height: 10vh;
+  width: 40vw;
+}
+
+@media screen and (min-width: 769px) {
+  .logo_image {
+    height: 15vh;
+    width: 20vw;
+  }
+}
