@@ -8,10 +8,11 @@ import { useSnackbar } from "notistack";
 
 export const CreateProductComponent = () => {
   const [productDetail, setProductDetail] = useState({});
+  const [productImageList, setProductImageList] = useState([]);
   const { enqueueSnackbar } = useSnackbar();
 
   const handleSave = async () => {
-    console.log(productDetail);
+    console.log(productImageList);
     let productForm = new FormData();
     productForm.append("enctype", "multipart/form-data");
     productForm.append("title", productDetail.title);
@@ -21,7 +22,10 @@ export const CreateProductComponent = () => {
     productForm.append("price", productDetail.price);
     productForm.append("sku", productDetail.sku);
     productForm.append("heroImage", productDetail.heroImage);
-    // console.log("in controller - ", productForm.getAll());
+    productImageList.forEach((image) => {
+      productForm.append("heroImage", image);
+    });
+    // console.log("in controller - ", productForm.getAll("productImages"));
     try {
       const responseData = await addNewProduct(productForm);
       console.log(responseData.data);
@@ -34,6 +38,17 @@ export const CreateProductComponent = () => {
         variant: "error",
       });
     }
+  };
+
+  const handleMultipleImages = (e) => {
+    const chosenImages = Array.prototype.slice.call(e.target.files);
+    const uplodaedImages = [...productImageList];
+    chosenImages.some((image) => {
+      if (uplodaedImages.findIndex((f) => f.name === image.name) === -1)
+        uplodaedImages.push(image);
+    });
+    console.log(uplodaedImages);
+    setProductImageList(uplodaedImages);
   };
   return (
     <Box
@@ -147,7 +162,7 @@ export const CreateProductComponent = () => {
           />
 
           <Button variant="contained" component="label">
-            Upload File
+            Upload Hero image
             <input
               type="file"
               hidden
@@ -158,6 +173,11 @@ export const CreateProductComponent = () => {
                 })
               }
             />
+          </Button>
+
+          <Button variant="contained" component="label">
+            Upload other images
+            <input type="file" multiple onChange={handleMultipleImages} />
           </Button>
 
           <Button

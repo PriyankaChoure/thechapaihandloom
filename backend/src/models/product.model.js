@@ -11,7 +11,7 @@ const ProductSchema = new mongoose.Schema(
     color: { type: String, required: true },
     price: { type: Number, required: true },
     heroImage: { type: String },
-    // imageList: { type: Array },
+    imageList: { type: Array },
     // fabric: { type: String },
     sku: { type: String, required: true, unique: true },
     // brand: { type: String },

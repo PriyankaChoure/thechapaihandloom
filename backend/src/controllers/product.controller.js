@@ -3,7 +3,14 @@ const productService = require("../services/product.service");
 
 // method to add new Product
 const addProduct = async (req, res) => {
-  console.log("controller - ", req.file.filename);
+  console.log("controller - ", req.files[0].fieldname);
+  // console.log(req.files);
+  let productImages = [];
+  if (req.files.length > 1) {
+    for (let i = 1; i < req.files.length; i++) {
+      productImages.push(req.files[i].filename);
+    }
+  }
   const productDetail = {
     title: req.body.title,
     desc: req.body.desc,
@@ -11,7 +18,8 @@ const addProduct = async (req, res) => {
     color: req.body.color,
     price: req.body.price,
     sku: req.body.sku,
-    heroImage: req.file.filename,
+    heroImage: req.files[0].filename,
+    imageList: productImages,
   };
   console.log("product details - ", productDetail);
   try {

@@ -30,7 +30,7 @@ export const login = async (userData) => {
 // add new product
 export const addNewProduct = async (productData) => {
   const URL = `${SERVER_URL}product`;
-  console.log("in api - ", productData.get("title"));
+  console.log("in api - ", productData.get("productImages"));
   try {
     const config = {
       headers: {
