@@ -13,8 +13,8 @@ export const AsideMenu = ({ menu }) => {
       <List className={styles.list}>
         {menu.map((menuItem) => (
           <ListItem className={styles.listItem}>
-            <Link to="/create" className={styles.link}>
-              <span>{menuItem}</span>
+            <Link to={menuItem.value} className={styles.link}>
+              <span>{menuItem.label}</span>
             </Link>
           </ListItem>
         ))}

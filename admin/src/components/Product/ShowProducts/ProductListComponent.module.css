@@ -1,0 +1,7 @@
+.heroimage {
+  height: 10vh;
+  width: 5vw;
+  border: 2px solid;
+  object-fit: fill;
+  margin-left: 5px;
+}

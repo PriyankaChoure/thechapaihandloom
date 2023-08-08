@@ -12,7 +12,9 @@ export const ProductPage = () => {
       <div className={styles.wrapper}>
         {/* <h2>Product page</h2> */}
         <AsideMenu menu={ASIDEMENU.products} />
-        <Outlet />
+        <div className={styles.childwrapper}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

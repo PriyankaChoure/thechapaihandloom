@@ -4,6 +4,7 @@ import axios from "axios";
  * FOR LOGIN - localhost:8082/backend/auth/login
  */
 const SERVER_URL = "http://localhost:8082/backend/";
+export const SERVER_IMAGE_URL = "http://localhost:8082/images/";
 
 // method for Login-
 export const login = async (userData) => {
@@ -37,6 +38,17 @@ export const addNewProduct = async (productData) => {
       },
     };
     const responseData = await axios.post(URL, productData, config);
+    return responseData;
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// List all products
+export const fetchAllProductList = async () => {
+  const URL = `${SERVER_URL}product`;
+  try {
+    const responseData = await axios.get(URL, { mode: "cors" });
     return responseData;
   } catch (err) {
     console.log(err);

@@ -8,6 +8,7 @@ import { LoginPage } from "./routes/LoginPage";
 import { HomePage } from "./routes/HomePage";
 import { ProductPage } from "./routes/ProductPage";
 import { CreateProductComponent } from "./components/Product/CreateProduct/CreateProductComponent";
+import { ProductListComponent } from "./components/Product/ShowProducts/ProductListComponent";
 
 const router = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ const router = createBrowserRouter([
         children: [
           {
             path: "",
+            element: <ProductListComponent />,
+          },
+          {
+            path: "/products/create",
             element: <CreateProductComponent />,
           },
         ],

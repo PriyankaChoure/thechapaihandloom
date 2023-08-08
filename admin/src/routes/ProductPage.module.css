@@ -2,5 +2,13 @@
   display: flex;
   flex-direction: row;
   row-gap: 20px;
+
   /* background-color: red; */
+}
+.childwrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* background-color: red; */
+  width: 100%;
 }

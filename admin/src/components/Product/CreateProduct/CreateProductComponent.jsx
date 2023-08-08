@@ -1,21 +1,39 @@
 import React, { useState } from "react";
 import styles from "./CreateProductComponent.module.css";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, MenuItem, TextField } from "@mui/material";
 import { Stack } from "@mui/system";
 import { addNewProduct } from "../../../apis/api";
+import { PRODUCT_CATEGORY } from "../../../config/config";
+import { useSnackbar } from "notistack";
 
 export const CreateProductComponent = () => {
   const [productDetail, setProductDetail] = useState({});
+  const { enqueueSnackbar } = useSnackbar();
+
   const handleSave = async () => {
     console.log(productDetail);
     let productForm = new FormData();
     productForm.append("enctype", "multipart/form-data");
     productForm.append("title", productDetail.title);
     productForm.append("desc", productDetail.desc);
+    productForm.append("category", productDetail.category);
+    productForm.append("color", productDetail.color);
+    productForm.append("price", productDetail.price);
+    productForm.append("sku", productDetail.sku);
     productForm.append("heroImage", productDetail.heroImage);
-    console.log("in controller - ", productForm.get("title"));
-    const responseData = await addNewProduct(productForm);
-    console.log(responseData.data);
+    // console.log("in controller - ", productForm.getAll());
+    try {
+      const responseData = await addNewProduct(productForm);
+      console.log(responseData.data);
+      enqueueSnackbar("product added successfully", {
+        variant: "success",
+      });
+    } catch (err) {
+      console.log(err);
+      enqueueSnackbar("something went wrong", {
+        variant: "error",
+      });
+    }
   };
   return (
     <Box
@@ -34,7 +52,7 @@ export const CreateProductComponent = () => {
             label="Title"
             variant="outlined"
             title="Title"
-            name="Title"
+            name="title"
             placeholder="Enter Title"
             fullWidth
             onChange={(e) =>
@@ -48,7 +66,7 @@ export const CreateProductComponent = () => {
             id="desc"
             variant="outlined"
             label="Description"
-            name="Description"
+            name="description"
             type="Description"
             fullWidth
             placeholder="Enter Description"
@@ -56,6 +74,74 @@ export const CreateProductComponent = () => {
               setProductDetail({
                 ...productDetail,
                 desc: e.target.value,
+              })
+            }
+          />
+          <TextField
+            id="category"
+            select
+            defaultValue="all"
+            label="category"
+            variant="outlined"
+            title="category"
+            name="category"
+            fullWidth
+            onChange={(e) =>
+              setProductDetail({
+                ...productDetail,
+                category: e.target.value,
+              })
+            }
+          >
+            {PRODUCT_CATEGORY.map((option) => (
+              <MenuItem key={option.value} value={option.value}>
+                {option.label}
+              </MenuItem>
+            ))}
+          </TextField>
+          <TextField
+            id="color"
+            label="Color"
+            variant="outlined"
+            title="color"
+            name="color"
+            placeholder="Enter color"
+            fullWidth
+            onChange={(e) =>
+              setProductDetail({
+                ...productDetail,
+                color: e.target.value,
+              })
+            }
+          />
+          <TextField
+            id="price"
+            type="Number"
+            label="price"
+            variant="outlined"
+            title="price"
+            name="price"
+            placeholder="Enter price"
+            fullWidth
+            onChange={(e) =>
+              setProductDetail({
+                ...productDetail,
+                price: e.target.value,
+              })
+            }
+          />
+          <TextField
+            id="sku"
+            label="SKU"
+            variant="outlined"
+            title="SKU"
+            name="sku"
+            placeholder="Enter SKU"
+            fullWidth
+            onChange={(e) =>
+              setProductDetail({
+                ...productDetail,
+                sku: e.target.value,
               })
             }
           />
