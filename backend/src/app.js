@@ -8,7 +8,12 @@ const routes = require("./routes/");
 const app = express();
 
 // set security HTTP headers - https://helmetjs.github.io/
-app.use(helmet());
+// app.use(helmet());
+// app.use(
+//   helmet({
+//     crossOriginResourcePolicy: true,
+//   })
+// );
 
 // parse json request body
 app.use(express.json());
@@ -16,7 +21,8 @@ app.use(express.json());
 // parse urlencoded request body
 app.use(express.urlencoded({ extended: true }));
 
-app.use(express.static(__dirname + "./public/images"));
+app.use(express.static("public"));
+app.use("../images", express.static("images"));
 
 // gzip compression
 app.use(compression());

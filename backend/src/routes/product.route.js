@@ -49,7 +49,7 @@ router.post(
  */
 router.get(
   "/:id",
-  middleware.verifyAuthorizationAndAuthentication,
+  // middleware.verifyAuthorizationAndAuthentication,
   productController.getProduct
 );
 

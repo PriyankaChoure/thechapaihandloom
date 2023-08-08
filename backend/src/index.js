@@ -1,8 +1,7 @@
 const mongoose = require("mongoose");
 const app = require("./app");
 const dbConfig = require("./config/dbconfig");
-const config = require("./config/config");
-
+const PORT = 8082;
 let server;
 
 // TODO: CRIO_TASK_MODULE_UNDERSTANDING_BASICS - Create Mongo connection and get the express app to listen on config.port

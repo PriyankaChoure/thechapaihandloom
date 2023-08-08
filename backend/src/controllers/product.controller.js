@@ -7,13 +7,22 @@ const addProduct = async (req, res) => {
   const productDetail = {
     title: req.body.title,
     desc: req.body.desc,
+    category: req.body.category,
+    color: req.body.color,
+    price: req.body.price,
+    sku: req.body.sku,
     heroImage: req.file.filename,
   };
   console.log("product details - ", productDetail);
   try {
     const newProduct = await productService.createProduct(productDetail);
     if (newProduct) {
-      res.status(httpStatus.CREATED).json(newProduct);
+      res
+        .header("Access-Control-Allow-Origin", "*")
+        .header("Access-Control-Allow-Methods", "GET")
+        .header("Access-Control-Allow-Headers", "Content-Type")
+        .status(httpStatus.CREATED)
+        .json(newProduct);
     } else {
       res.status(httpStatus.BAD_REQUEST).json("Error while creating product");
     }
@@ -42,7 +51,7 @@ const getAllProducts = async (req, res) => {
 // method to found product detail by id
 const getProduct = async (req, res) => {
   try {
-    const productDetail = await productService.getProductByID(req.body.id);
+    const productDetail = await productService.getProductByID(req.params.id);
     if (productDetail) {
       res.status(httpStatus.OK).json(productDetail);
     } else {
