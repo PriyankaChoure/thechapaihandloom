@@ -1,0 +1,36 @@
+.wrapper {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+.card_wrapper {
+  /* border: 2px solid; */
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  transition: 0.4s;
+}
+.product_image {
+  /* height: auto; */
+  width: 500px;
+  max-width: 100%;
+  margin: 5px;
+}
+
+@media screen and (min-width: 769px) {
+  .wrapper {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .product_image {
+    height: auto;
+    width: 300px;
+    /* max-width: 100%; */
+    margin: 5px;
+  }
+}
