@@ -3,8 +3,8 @@ import axios from "axios";
  * API List-
  * FOR LOGIN - localhost:8082/backend/auth/login
  */
-const SERVER_URL = "http://localhost:8082/backend/";
-export const SERVER_IMAGE_URL = "http://localhost:8082/images/";
+const SERVER_URL = "http://192.168.29.254:8082/backend/";
+export const SERVER_IMAGE_URL = "http://192.168.29.254:8082/images/";
 
 // List all products
 export const fetchAllProductList = async () => {
