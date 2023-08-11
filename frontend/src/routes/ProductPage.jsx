@@ -36,12 +36,6 @@ export const ProductPage = () => {
       {productDetail ? (
         <div className={styles.wrapper}>
           <div className={styles.images_wrapper}>
-            {/* <img
-              src={SERVER_IMAGE_URL + productDetail.heroImage}
-              alt="product"
-              crossOrigin="Anonymous"
-              className={styles.heroImage}
-            ></img> */}
             <CarouselComponent
               dataList={productImages}
               renderComponetent={(item) => (
@@ -54,20 +48,6 @@ export const ProductPage = () => {
                 // ></img>
               )}
             />
-            <h1>To Purches This Item -</h1>
-            <a
-              href="https://api.whatsapp.com/send?phone=9826315825"
-              target="_blank"
-              className={styles.whastapp_Button}
-            >
-              Connect on Whatsapp
-              {/* <WhatsAppIcon sx={{ fontSize: 60 }} color="primary" /> */}
-              <img
-                className={styles.whatsapp_image}
-                src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/whatsapp.svg"
-                alt="whatsapp"
-              ></img>
-            </a>
           </div>
           <div className={styles.details_wrapper}>
             <header>
@@ -99,6 +79,23 @@ export const ProductPage = () => {
                 <span className={styles.details_caption}>SKU : </span>
                 <h4 className={styles.details_data}>{productDetail.sku}</h4>
               </div>
+            </div>
+            <div className={styles.purchase_container}>
+              <h3>To Purches This Item -</h3>
+              <a
+                href="https://api.whatsapp.com/send?phone=9826315825"
+                target="_blank"
+                className={styles.whastapp_Button}
+                alt="whatsapp"
+              >
+                Connect on Whatsapp
+                {/* <WhatsAppIcon sx={{ fontSize: 60 }} color="primary" /> */}
+                <img
+                  className={styles.whatsapp_image}
+                  src="https://rawcdn.githack.com/rafaelbotazini/floating-whatsapp/3d18b26d5c7d430a1ab0b664f8ca6b69014aed68/whatsapp.svg"
+                  alt="whatsapp"
+                ></img>
+              </a>
             </div>
           </div>
         </div>

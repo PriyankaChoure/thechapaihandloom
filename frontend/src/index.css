@@ -46,6 +46,6 @@ h6 {
 #__next {
   isolation: isolate;
 }
-.swiper-slide {
+/* .swiper-slide {
   width: auto !important;
-}
+} */

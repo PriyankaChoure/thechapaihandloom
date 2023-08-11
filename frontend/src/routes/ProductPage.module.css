@@ -14,7 +14,7 @@
 .whastapp_Button {
   display: flex;
   gap: 8px;
-  /* width: 45px; */
+  width: fit-content;
   height: 45px;
   font-size: x-large;
   text-decoration: none;
