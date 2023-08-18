@@ -14,6 +14,9 @@ const app = express();
 //     crossOriginResourcePolicy: true,
 //   })
 // );
+// enable cors
+app.use(cors());
+app.options("*", cors());
 
 // parse json request body
 app.use(express.json());
@@ -26,10 +29,6 @@ app.use("../images", express.static("images"));
 
 // gzip compression
 app.use(compression());
-
-// enable cors
-app.use(cors());
-app.options("*", cors());
 
 // Reroute all API request starting with "/v1" route
 app.use("/backend", routes);
