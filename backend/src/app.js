@@ -31,6 +31,9 @@ app.use("../images", express.static("images"));
 app.use(compression());
 
 // Reroute all API request starting with "/v1" route
+app.get("/", (req, res) => {
+  res.send("Server is running");
+});
 app.use("/backend", routes);
 
 // send back a 404 error for any unknown api request
