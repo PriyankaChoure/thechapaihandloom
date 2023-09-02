@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./HomePage.module.css";
 import { Link } from "react-router-dom";
-import { SERVER_IMAGE_URL, fetchAllProductList } from "../apis/productAPI";
+import { fetchAllProductList } from "../apis/productAPI";
 
 export const HomePage = () => {
   const [products, setProducts] = useState([]);
@@ -24,8 +24,8 @@ export const HomePage = () => {
   const getProductList = async () => {
     try {
       const responseData = await fetchAllProductList();
-      setProducts(responseData.data);
       console.log(responseData.data);
+      setProducts(responseData.data);
     } catch (err) {
       console.log(err);
     }
@@ -39,9 +39,9 @@ export const HomePage = () => {
         <div className={styles.card_wrapper}>
           <Link to={`/product/${product._id}`}>
             <img
-              src={SERVER_IMAGE_URL + product.heroImage}
+              src={product.heroImage}
               alt="product"
-              crossOrigin="Anonymous"
+              // crossOrigin="Anonymous"
               className={styles.product_image}
             ></img>
             <span>{product.title}</span>

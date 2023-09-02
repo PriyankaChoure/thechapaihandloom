@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./CardComponent.module.css";
 import { Link } from "react-router-dom";
-import { SERVER_IMAGE_URL } from "../../apis/productAPI";
+// import { SERVER_IMAGE_URL } from "../../apis/productAPI";
 
 export const CardComponent = ({ cardDetails, type }) => {
   const getCard = (type) => {
@@ -11,9 +11,9 @@ export const CardComponent = ({ cardDetails, type }) => {
           <div className={styles.container}>
             <div className={styles.image_container}>
               <img
-                src={SERVER_IMAGE_URL + cardDetails}
+                src={cardDetails}
                 alt="card"
-                crossOrigin="Anonymous"
+                // crossOrigin="Anonymous"
                 className={styles.image}
               />
             </div>
