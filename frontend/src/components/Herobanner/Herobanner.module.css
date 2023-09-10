@@ -1,0 +1,17 @@
+.banner {
+  height: 60vh;
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.heroimage {
+  height: 50vh;
+  width: 100%;
+}
+
+@media screen and (min-width: 769px) {
+  .heroimage {
+    height: 50vh;
+    /* width: 70%; */
+  }
+}
