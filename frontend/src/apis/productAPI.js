@@ -3,7 +3,7 @@ import axios from "axios";
  * API List- thechapaihandloom.vercel.app
  * FOR LOGIN - localhost:8082/backend/auth/login
  */
-const SERVER_URL = "http://localhost:8082/backend/";
+const SERVER_URL = "http://13.235.243.61:8082/backend/";
 // export const SERVER_IMAGE_URL = "https://192.168.29.254:8082/images/";
 
 // const SERVER_URL = "thechapaihandloom.vercel.app/backend/";
@@ -25,6 +25,16 @@ export const fetchAllProductList = async () => {
 // fetch product by ID
 export const fetchProductByID = async (productID) => {
   const URL = `${SERVER_URL}product/${productID}`;
+  try {
+    const responseData = await axios.get(URL, { mode: "cors" });
+    return responseData;
+  } catch (err) {
+    console.log(err);
+  }
+};
+// fetch product by ID
+export const fetchProductByCategory = async (category) => {
+  const URL = `${SERVER_URL}product/${category}`;
   try {
     const responseData = await axios.get(URL, { mode: "cors" });
     return responseData;

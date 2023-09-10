@@ -5,6 +5,7 @@ import { App } from "./App";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { HomePage } from "./routes/HomePage";
 import { ProductPage } from "./routes/ProductPage";
+import StaticPage from "./routes/StaticPage";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <ProductPage />,
+      },
+      {
+        path: "/staticpage/:elementName",
+        element: <StaticPage />,
       },
     ],
   },
