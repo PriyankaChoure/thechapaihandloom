@@ -2,6 +2,7 @@ import React from "react";
 import styles from "./StaticPage.module.css";
 import { useParams } from "react-router-dom";
 import ContactComponent from "../components/Contact/ContactComponent";
+import AboutUsComponent from "../components/AboutUs/AboutUsComponent";
 
 const StaticPage = () => {
   const { elementName } = useParams();
@@ -9,6 +10,8 @@ const StaticPage = () => {
     switch (element) {
       case "contactus":
         return <ContactComponent />;
+      case "aboutus":
+        return <AboutUsComponent />;
       default:
         return <div></div>;
     }

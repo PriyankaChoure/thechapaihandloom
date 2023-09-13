@@ -1,9 +1,10 @@
 import axios from "axios";
+import { SERVER_URL } from "../config/config";
 /**
  * API List- thechapaihandloom.vercel.app
  * FOR LOGIN - localhost:8082/backend/auth/login
  */
-const SERVER_URL = "http://13.235.243.61:8082/backend/";
+
 // export const SERVER_IMAGE_URL = "https://192.168.29.254:8082/images/";
 
 // const SERVER_URL = "thechapaihandloom.vercel.app/backend/";

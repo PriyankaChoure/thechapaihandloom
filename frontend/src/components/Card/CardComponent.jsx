@@ -20,25 +20,13 @@ export const CardComponent = ({ cardDetails, type }) => {
           </div>
         );
       }
-      case "song": {
+      case "shop": {
         return (
-          <Link to={`/album/${cardDetails.slug}`} className={styles.link}>
-            <div className={styles.container}>
-              <div className={styles.image_container}>
-                <img
-                  src={`${cardDetails.image}`}
-                  alt="card"
-                  className={styles.image}
-                />
-                <div className={styles.followers}>
-                  <span className={styles.Follower_text}>
-                    {cardDetails.likes} Likes
-                  </span>
-                </div>
-              </div>
-              <p className={styles.title}>{cardDetails.title}</p>
+          <div className={styles.shopwrapper}>
+            <div className={styles.image_wrapper}>
+              <img src={cardDetails} alt="card" className={styles.image} />
             </div>
-          </Link>
+          </div>
         );
       }
       default: {

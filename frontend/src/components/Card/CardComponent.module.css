@@ -65,3 +65,19 @@
 .link {
   text-decoration: none;
 }
+/* ******************************************************************************************** */
+/* css for shop card */
+
+.shopwrapper {
+  margin: 5px;
+}
+.image_wrapper {
+  /* height: 30vh; */
+  /* width: 100%; */
+}
+@media screen and (min-width: 769px) {
+  .image_wrapper {
+    height: 60vh;
+    width: 40vw;
+  }
+}
