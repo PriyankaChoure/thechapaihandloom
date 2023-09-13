@@ -3,14 +3,7 @@ const productService = require("../services/product.service");
 
 // method to add new Product
 const addProduct = async (req, res) => {
-  console.log("controller - ", req.files[0].fieldname);
   // console.log(req.files);
-  let productImages = [];
-  if (req.files.length > 1) {
-    for (let i = 1; i < req.files.length; i++) {
-      productImages.push(req.files[i].filename);
-    }
-  }
   const productDetail = {
     title: req.body.title,
     desc: req.body.desc,
@@ -18,19 +11,14 @@ const addProduct = async (req, res) => {
     color: req.body.color,
     price: req.body.price,
     sku: req.body.sku,
-    heroImage: req.files[0].filename,
-    imageList: productImages,
+    heroImage: req.body.heroImage,
+    imageList: req.body.productImages,
   };
   console.log("product details - ", productDetail);
   try {
     const newProduct = await productService.createProduct(productDetail);
     if (newProduct) {
-      res
-        .header("Access-Control-Allow-Origin", "*")
-        .header("Access-Control-Allow-Methods", "GET")
-        .header("Access-Control-Allow-Headers", "Content-Type")
-        .status(httpStatus.CREATED)
-        .json(newProduct);
+      res.status(httpStatus.CREATED).json(newProduct);
     } else {
       res.status(httpStatus.BAD_REQUEST).json("Error while creating product");
     }

@@ -16,4 +16,9 @@ router.use("/category", categoryRoute);
 // Route for Product
 const productRoute = require("./product.route");
 router.use("/product", productRoute);
+
+// Route for Shop
+const shopRoute = require("./shopdetail.router");
+router.use("/shop", shopRoute);
+
 module.exports = router;

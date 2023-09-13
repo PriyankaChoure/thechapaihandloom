@@ -21,8 +21,7 @@ const productController = require("../controllers/product.controller");
  */
 router.post(
   "/",
-  imageUploadMiddilware.upload.array("heroImage"),
-  // imageUploadMiddilware.upload.array("productImages"),
+  // imageUploadMiddilware.upload.array("heroImage"),
   productController.addProduct
 );
 
