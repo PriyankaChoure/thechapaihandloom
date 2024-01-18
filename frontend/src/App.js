@@ -2,8 +2,9 @@ import React from "react";
 import { Outlet } from "react-router-dom";
 import { SnackbarProvider } from "notistack";
 import { StyledEngineProvider } from "@mui/system";
-import { HeaderComponent } from "./components/Header/HeaderComponent";
+
 import FooterComponent from "./components/Footer/FooterComponent";
+import { HeaderComponent } from "./components/common/Header/HeaderComponent";
 
 export const App = () => {
   return (

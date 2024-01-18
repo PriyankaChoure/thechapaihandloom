@@ -5,7 +5,7 @@ const Herobanner = () => {
   return (
     <div className={styles.banner}>
       <img
-        src={require("../../assets/pink_silk_saree.jpeg")}
+        src={require("../../assets/images/banner1.jpeg")}
         alt="HeroImage"
         className={styles.heroimage}
       />

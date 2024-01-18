@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  margin: 3px;
+  list-style: none;
+}
+.nav_item {
+  display: inline;
+  /* text-decoration: none; */
+}
+.link {
+  text-decoration: none;
+  font-size: larger;
+  font-weight: bold;
+}
