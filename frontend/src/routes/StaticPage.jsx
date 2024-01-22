@@ -3,6 +3,7 @@ import styles from "./StaticPage.module.css";
 import { useParams } from "react-router-dom";
 import ContactComponent from "../components/Contact/ContactComponent";
 import AboutUsComponent from "../components/AboutUs/AboutUsComponent";
+import StoreDetailsComponent from "../components/StoreDetails/StoreDetailsComponent";
 
 const StaticPage = () => {
   const { elementName } = useParams();
@@ -12,6 +13,8 @@ const StaticPage = () => {
         return <ContactComponent />;
       case "aboutus":
         return <AboutUsComponent />;
+      case "storedetails":
+        return <StoreDetailsComponent />;
       default:
         return <div></div>;
     }
